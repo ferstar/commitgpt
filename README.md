@@ -10,8 +10,9 @@ Automatically generate commit messages using ChatGPT.
 npx commitgpt
 ```
 
-### Get OpenAI api key
-https://platform.openai.com/account/api-keys
+### Set our priviate GPT proxy url
+
+may be like this: http://100.64.x.x:8888/xxx
 
 ### Configuration (Optional)
 you can create `.commitgpt.json` and/or `..commitgpt-template` config files in your project root. 
