@@ -9,17 +9,10 @@ const GLOBAL_PROMPT_TEMPLATE_PATH = `${homedir()}/.commitgpt-template`;
 const LOCAL_PROMPT_TEMPLATE_PATH = `${process.cwd()}/.commitgpt-template`;
 
 interface Config {
-  apiKey?: string;
-  promptTemplate?: string;
-  model: string;
-  temperature: number;
-  maxTokens: number;
+  pai_gpt_proxy?: string;
 }
 
 const defaultConfig = {
-  model: "text-davinci-003",
-  temperature: 0.5,
-  maxTokens: 2048,
 } satisfies Config;
 
 const writeJsonFile = (path: string, data: unknown) => {

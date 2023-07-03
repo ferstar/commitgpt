@@ -1,48 +1,32 @@
 import enquirer from "enquirer";
 import { getConfig, setGlobalConfig } from "./config_storage.js";
 
-async function promptToken() {
+async function promptProxy() {
   try {
-    const answer = await enquirer.prompt<{ apikey: string }>({
-      type: "password",
-      name: "apikey",
-      message: "Paste your OpenAI apikey here:",
+    const answer = await enquirer.prompt<{ pai_gpt_proxy: string }>({
+      type: "input",
+      name: "pai_gpt_proxy",
+      message: "Paste your PAI GPT proxy url here:",
     });
 
-    return answer.apikey;
+    return answer.pai_gpt_proxy;
   } catch (e) {
     console.log("Aborted.");
     process.exit(1);
   }
 }
 
-export async function getApiKey(clean?: boolean): Promise<string> {
-  let apiKey = getConfig<string | undefined>("apiKey");
+export async function getPaiProxy(clean?: boolean): Promise<string> {
+  let pai_gpt_proxy = getConfig<string | undefined>("pai_gpt_proxy");
 
   if (clean) {
-    apiKey = undefined;
+    pai_gpt_proxy = undefined;
   }
 
-  if (!apiKey) {
-    apiKey = await promptToken();
-    setGlobalConfig("apiKey", apiKey);
+  if (!pai_gpt_proxy) {
+    pai_gpt_proxy = await promptProxy();
+    setGlobalConfig("pai_gpt_proxy", pai_gpt_proxy);
   }
 
-  return apiKey;
-}
-
-export async function getPromptOptions(): Promise<{
-  model: string;
-  temperature: number;
-  maxTokens: number;
-}> {
-  const model = getConfig<string>("model");
-  const temperature = getConfig<number>("temperature");
-  const maxTokens = getConfig<number>("maxTokens");
-
-  return {
-    model,
-    temperature,
-    maxTokens,
-  };
+  return pai_gpt_proxy;
 }

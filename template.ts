@@ -4,10 +4,10 @@ export const defaultPromptTemplate = [
   "",
   "commit messages should:",
   " - follow conventional commits",
-  " - message format should be: <type>[scope]: <description>",
+  " - message format should be: <type>: <description>",
 
   "",
   "examples:",
-  " - fix(authentication): add password regex pattern",
-  " - feat(storage): add new test cases",
+  " - fix: add password regex pattern",
+  " - feat: add new test cases",
 ].join("\n");

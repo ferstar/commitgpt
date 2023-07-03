@@ -1,6 +1,6 @@
 {
   "name": "commitgpt",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "index.js",
   "type": "module",
@@ -22,8 +22,8 @@
   },
   "homepage": "https://github.com/RomanHotsiy/commitgpt#readme",
   "dependencies": {
+    "axios": "^0.21.4",
     "enquirer": "^2.3.6",
-    "openai": "^3.2.1",
     "ora": "^6.1.2",
     "uuid": "^9.0.0",
     "ws": "^8.12.1",
